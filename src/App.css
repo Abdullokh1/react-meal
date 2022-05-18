@@ -1,0 +1,11 @@
+body{
+  background-color: #3f3f3f;
+  padding-top: 82px;
+  overflow-x: hidden;
+}
+button{
+  border: none;
+}
+ul{
+  list-style: none;
+}

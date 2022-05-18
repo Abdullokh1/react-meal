@@ -1,0 +1,27 @@
+.main-img{
+  width: 110%;
+  height: 330px;
+  object-fit: cover;
+  -webkit-transform: rotate(-5deg) translateY(-4rem) translateX(-1rem);
+   transform: rotate(-4deg) translateY(-4rem) translateX(-1rem);
+}
+.main-section{
+  padding-bottom: 30px;
+}
+.main-content{
+  background-color: #383838;
+  width: 700px;
+  margin: 0 auto;
+  text-align: center;
+  margin: -10rem auto auto;
+  position: relative;
+  padding: 1.5rem;
+  box-shadow: 0 1px 18px 10px rgb(0 0 0 / 25%);
+  border-radius: 14px;
+  color: #fff;
+  margin-bottom: 30px;
+}
+.main-title{
+  font-weight: 700;
+  font-size: 32px;
+}

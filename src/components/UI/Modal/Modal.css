@@ -1,0 +1,83 @@
+.modal-box{
+  position: fixed;
+  top: 25%;
+  left: 27%;
+  transform: translate(-50%,-50%);
+  width: 44%;
+  background-color: #fff;
+  padding: 45px 20px;
+  border-radius: 14px;
+  box-shadow: 0 2px 8px rgb(0 0 0 / 25%);
+  transition: all 0.4s ease;
+  z-index: 222;
+}
+.modal-inner{
+  position: relative;
+}
+.modal-btn-wrapper{
+  position: absolute;
+  bottom: -55px;
+  right: -5px;
+}
+.close-modal{
+  background-color: transparent;
+  border: 1px solid #8a2b06;
+  padding: 0.5rem 2rem;
+  border-radius: 25px;
+  font-weight: 600;
+  color: #8a2b06;
+}
+.close-modal:hover{
+  background-color: #8a2b06;
+  color: #fff;
+}
+.submit-btn{
+  background-color: #8a2b06;
+  color: #fff;
+}
+.submit-btn:hover{
+  background-color: #521d08;
+}
+.price-info{
+  font-size: 24px;
+  font-weight: bold;
+  color: #000;
+}
+.modal-product-name{
+  font-size: 24px;
+}
+.modal-price{
+  font-size: 16px;
+}
+.modal-count{
+  display: flex;
+  flex-grow: 1;
+}
+.modal-count-info{
+  font-weight: 700;
+  border: 1px solid #ccc;
+  padding: 0.25rem 0.75rem;
+  border-radius: 5px;
+  color: #363636;
+}
+.modal-count-btn{
+  font-weight: 700;
+  font-size: 1.25rem;
+  color: #8a2b06;
+  border: 1px solid #8a2b06;
+  width: 3rem;
+  text-align: center;
+  border-radius: 6px;
+  background-color: transparent;
+  cursor: pointer;
+  margin: 0.25rem;
+}
+.modal-count-btn:hover{
+  background-color: #8a2b06;
+  color: #fff;
+}
+.modal-main-box{
+  margin-bottom: 30px;
+  border-bottom: 2px solid #8a2b06;
+  padding-bottom: 25px;
+}

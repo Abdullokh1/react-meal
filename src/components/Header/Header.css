@@ -1,0 +1,37 @@
+.header{
+  padding: 13px;
+  background-color: #8a2b06;
+  color: #fff;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 111;
+}
+.container{
+  width: 1240px;
+}
+.header__title{
+  font-size: 2rem;
+  font-weight: 700;
+}
+.header__btn{
+  background-color: #4d1601;
+  color: #fff; 
+  padding: 0.75rem 3rem;
+  border-radius: 25px;
+  font-weight: 700;
+}
+.header__btn:hover{
+  background-color: #2c0d00;
+}
+.icon{
+  font-size: 10px;
+}
+.header__count__btn{
+  background-color: #B94517;
+  padding: 4px 16px;
+  border-radius: 25px;
+}
+.header__icon{
+  font-size: 20px;
+}
