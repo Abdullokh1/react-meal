@@ -41,13 +41,18 @@ export default class MealBuilder extends Component {
         mealDesc: "Healthy...and green...",
         mealPrice: 18.99,
       },
-    ]
+    ],
+
+    newArr: []
+
   }
 
   addHandler = (e) =>{
     this.setState({count: this.state.count + 1})
     this.setState({isAdded: true})
+    
   }
+  
 
   addMealProduct = () =>{
     this.addHandler()
@@ -68,15 +73,14 @@ export default class MealBuilder extends Component {
   }
 
 
-
   modalHandle = () =>{
     this.setState({isClicked: true})
   }
 
 
   render() {
-    return (
 
+    return (
       <>
        <Modal 
        show={this.state.isClicked}

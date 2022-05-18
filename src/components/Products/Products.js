@@ -11,6 +11,7 @@ export default function Products(props) {
         {product.map((item, i) => {
           return (
             <li
+              id={item.id}
               key={i}
               className="d-flex product-item justify-content-between"
             >

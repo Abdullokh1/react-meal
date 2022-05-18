@@ -10,8 +10,8 @@ export default function Modal(props) {
            
            <div className='d-flex modal-main-box  align-items-end'>
               <div className='product-item-modal me-5'>
-                  <h5 className="modal-product-name">Sushi</h5>
-                  <span className="product-price modal-price">$22.99</span>
+                  <h5 className="modal-product-name">{props.mealName}</h5>
+                  <span className="product-price modal-price">${props.mealPrice}</span>
               </div>
               <div className='modal-count'>
                 <span className='modal-count-info'>X <span>{props.itemCount}</span></span>
