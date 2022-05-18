@@ -3,6 +3,14 @@ import Main from '../../Main/Main'
 import Header from '../Header/Header'
 import Modal from '../UI/Modal/Modal'
 
+
+let productPrice = {
+  sushi: 22.99,
+  german: 16.99,
+  american: 12.99,
+  greenBowl: 18.99
+}
+
 export default class MealBuilder extends Component {
   state = {
     count: 0,
@@ -10,68 +18,56 @@ export default class MealBuilder extends Component {
     isClicked: false,
     isAdded: false,
     totalPrice: 0,
+    total: 0,
+    modal: false,
     itemCount: 1,
     
-
-    AllProducts: [
-      {
-        id: 1,
-        mealName: "Sushi",
-        mealDesc: "Finest fish and veggies",
-        mealPrice: 22.99,
-      },
-    
-      {
-        id: 2,
-        mealName: "Schnitzel",
-        mealDesc: "A german specialty!",
-        mealPrice: 16.99,
-      },
-    
-      {
-        id: 3,
-        mealName: "Barbecue Burger",
-        mealDesc: "American, raw, meaty",
-        mealPrice: 12.99,
-      },
-    
-      {
-        id: 4,
-        mealName: "Green Bowl",
-        mealDesc: "Healthy...and green...",
-        mealPrice: 18.99,
-      },
-    ],
-
-    newArr: []
-
+    products: {
+      sushi: 0,
+      german: 0,
+      american: 0,
+      greenBowl: 0,
+    },
   }
 
-  addHandler = (e) =>{
+
+  newNumber = (products) => {
+    let newTotal = Object.keys(products).map((item, index) => {
+      return products[item];
+    }).reduce((newTotal, el) => {
+      return newTotal + el;
+    }, 0);
+
+    this.setState({
+      total : newTotal
+    })
+  }
+
+  addHandler = (type) =>{
     this.setState({count: this.state.count + 1})
     this.setState({isAdded: true})
     
+    let oldCount = this.state.products[type];
+    let updateCount = oldCount + 1;
+    let updateProducts = {...this.state.products}
+    updateProducts[type] = updateCount;
+    const priceAddition = productPrice[type];
+
+    const oldPrice = this.state.totalPrice;
+    const newPrice = oldPrice + priceAddition;
+    
+    this.setState({
+      products : updateProducts,
+      totalPrice : newPrice
+    });
+    this.newNumber(updateProducts);
+    this.setState({modal: true})
   }
-  
 
-  addMealProduct = () =>{
-    this.addHandler()
- }
- 
- Increment = () =>{
-   this.setState({itemCount: this.state.itemCount + 1})
-   this.setState({count: this.state.count + 1})
- }
-
- Decrement = () =>{
-  this.setState({itemCount: this.state.itemCount - 1})
-  this.setState({count: this.state.count - 1})
-}
  
   closeModal = () =>{
     this.setState({isClicked: false})
   }
-
 
   modalHandle = () =>{
     this.setState({isClicked: true})
@@ -79,7 +75,6 @@ export default class MealBuilder extends Component {
 
 
   render() {
-
     return (
       <>
        <Modal 
@@ -89,11 +84,11 @@ export default class MealBuilder extends Component {
        total={this.state.totalPrice}
        addMeal={this.addMealProduct}
        itemCount={this.state.itemCount}
-       Increment={this.Increment}
-       Decrement={this.Decrement}
+       modal={this.state.modal}
+       data={this.state.products}
        >
-         
        </Modal>
+       
        <Header 
        countHandle={this.state.count}
        modalHandler={this.modalHandle}

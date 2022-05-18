@@ -1,43 +1,59 @@
 import React from "react";
+import ProductItem from "./ProductItem/ProductItem";
 import "./Products.css";
 
+const arr  = [
+  {
+    id: 1,
+    mealName: "Sushi",
+    mealDesc: "Finest fish and veggies",
+    mealPrice: 22.99,
+    type: 'sushi'
+  },
+
+  {
+    id: 2,
+    mealName: "Schnitzel",
+    mealDesc: "A german specialty!",
+    mealPrice: 16.99,
+    type: 'german'
+
+  },
+
+  {
+    id: 3,
+    mealName: "Barbecue Burger",
+    mealDesc: "American, raw, meaty",
+    mealPrice: 12.99,
+    type: 'american'
+  },
+
+  {
+    id: 4,
+    mealName: "Green Bowl",
+    mealDesc: "Healthy...and green...",
+    mealPrice: 18.99,
+    type: 'greenBowl'
+  },
+]
 
 
 export default function Products(props) {
-  const product = props.allproduct
   return (
     <>
       <ul className="product-list">
-        {product.map((item, i) => {
+        {arr.map((item, i) => {
           return (
-            <li
-              id={item.id}
-              key={i}
-              className="d-flex product-item justify-content-between"
-            >
-              <div>
-                <h5 className="product-name">{item.mealName}</h5>
-                <p className="mb-2 product-desc">{item.mealDesc}</p>
-                <span className="product-price">${item.mealPrice}</span>
-              </div>
-
-              <div>
-                <div className="d-flex align-items-center">
-                  <p className="m-0 product-name me-3">Amount</p>
-                  <input
-                    className="amount-input"
-                    type="number"
-                    placeholder="1"
-                  />
-                </div>
-                <button onClick={props.addHandler} className="product-btn">
-                  +Add
-                </button>
-              </div>
-            </li>
+            <ProductItem
+            key={i}
+             data={item}
+             addHandler={() => props.addHandler(item.type)}
+             submitHandler={props.submitHandler}
+            />
           );
         })}
       </ul>
     </>
   );
 }
+export {arr};
